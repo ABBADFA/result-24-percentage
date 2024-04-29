@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Percentage Calculator</title>
+    <style>
+        /* Define styles for colored text */
+        .green { color: #32CD32; }
+        .blue { color: #4169E1; }
+        .cyan { color: #00FFFF; }
+        .magenta { color: #FF00FF; }
+        .yellow { color: #FFFF00; }
+        .red { color: #FF0000; }
+    </style>
+</head>
+<body>
+    <h1 class="green">Assalamualaikum Shamsians... Abbad is here..BEST OF LUCK</h1>
+    <h2 class="blue">Please enter the marks for your top five subjects.</h2>
+
+    <!-- Form to input marks -->
+    <form id="marksForm">
+        <label class="cyan" for="subject1">Enter the marks for subject 1:</label>
+        <input type="number" id="subject1" name="subject1" required><br>
+
+        <label class="cyan" for="subject2">Enter the marks for subject 2:</label>
+        <input type="number" id="subject2" name="subject2" required><br>
+
+        <label class="cyan" for="subject3">Enter the marks for subject 3:</label>
+        <input type="number" id="subject3" name="subject3" required><br>
+
+        <label class="cyan" for="subject4">Enter the marks for subject 4:</label>
+        <input type="number" id="subject4" name="subject4" required><br>
+
+        <label class="cyan" for="subject5">Enter the marks for subject 5:</label>
+        <input type="number" id="subject5" name="subject5" required><br>
+
+        <button type="submit">Calculate Percentage</button>
+    </form>
+
+    <!-- Placeholder for result -->
+    <div id="result"></div>
+
+    <script>
+        // JavaScript to calculate percentage when form is submitted
+        document.getElementById("marksForm").addEventListener("submit", function(event) {
+            event.preventDefault(); // Prevent default form submission
+
+            // Retrieve marks from form
+            var marks = [
+                parseInt(document.getElementById("subject1").value),
+                parseInt(document.getElementById("subject2").value),
+                parseInt(document.getElementById("subject3").value),
+                parseInt(document.getElementById("subject4").value),
+                parseInt(document.getElementById("subject5").value)
+            ];
+
+            // Calculate total marks
+            var totalMarks = marks.reduce((acc, curr) => acc + curr, 0);
+
+            // Calculate percentage
+            var totalPossibleMarks = 500; // Assuming each subject is out of 100 marks
+            var percentage = (totalMarks / totalPossibleMarks) * 100;
+
+            // Display result
+            var resultDiv = document.getElementById("result");
+            resultDiv.innerHTML = "<h3 class='magenta'>Total Marks: " + totalMarks + "</h3>";
+            resultDiv.innerHTML += "<h3 class='yellow'>Percentage: " + percentage.toFixed(2) + "%</h3>";
+            resultDiv.innerHTML += "<h3 class='red'>CONGRATULATIONS FROM ABBAD</h3>";
+        });
+    </script>
+</body>
+</html>
